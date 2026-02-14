@@ -69,9 +69,9 @@ connectionSocket.close()
       # Remember the format you used in the try: block!
       #Fill in start
 error_response = b"HTTP/1.1 404 Not Found\r\n"
-error_respponse += b"Content-Type: text/html; charset=UTF-8\r\n"
+error_response += b"Content-Type: text/html; charset=UTF-8\r\n"
 error_resonse += b"Connection: close\r\n"
-error_response += b"r\n\"
+error_response += b"\r\n"
 error_response += b"<html><body><h1>404 Not Found</h1></body></html>"
 connectionSocket.send(error_response)
       #Fill in end
@@ -89,4 +89,5 @@ connectionSocket.close()
 
 if __name__ == "__main__":
   webServer(13331)
+
 
