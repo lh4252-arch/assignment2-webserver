@@ -23,8 +23,7 @@ serverSocket.listen(1)
     #Fill in end
     
     try:
-      message = #Fill in start
-      connectionSocket.recv(1024).decode()
+      message = connectionSocket.recv(1024).decode()
       #Fill in end 
       filename = message.split()[1]
       
@@ -37,19 +36,19 @@ serverSocket.listen(1)
 
       #This variable can store the headers you want to send for any valid or invalid request.   What header should be sent for a response that is ok?    
       #Fill in start 
-       outputdata = b"HTTP/1,1 200 OK \r\n"      
+      outputdata = b"HTTP/1,1 200 OK \r\n"      
       #Content-Type is an example on how to send a header as bytes. There are more!
-      outputdata = b"Content-Type: text/html; charset=UTF-8\r\n"
+      outputdata += b"Content-Type: text/html; charset=UTF-8\r\n"
 
 
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
- outputdata += b"Server: LeviServer\r\n"
-outputdata += b"Connection: close\r\n"
+      outputdata += b"Server: LeviServer\r\n"
+      outputdata += b"Connection: close\r\n"
       #Fill in end
                
       for i in f: #for line in file
       #Fill in start 
-        outputdata += i
+      outputdata += i
         #Fill in end 
         
       #Send the content of the requested file to the client (don't forget the headers you created)!
@@ -68,7 +67,7 @@ connectionSocket.send(outputdata)
       #Fill in start
 error_response = b"HTTP/1.1 404 Not Found\r\n"
 error_response += b"Content-Type: text/html; charset=UTF-8\r\n"
-error_resonse += b"Connection: close\r\n"
+error_response += b"Connection: close\r\n"
 error_response += b"\r\n"
 error_response += b"<html><body><h1>404 Not Found</h1></body></html>"
 connectionSocket.send(error_response)
@@ -87,6 +86,7 @@ connectionSocket.close()
 
 if __name__ == "__main__":
   webServer(13331)
+
 
 
 
