@@ -1,4 +1,4 @@
-er# import socket module
+# import socket module
 from socket import *
 # In order to terminate the program
 import sys
@@ -87,6 +87,7 @@ def webServer(port=13331):
 
 if __name__ == "__main__":
   webServer(13331)
+
 
 
 
