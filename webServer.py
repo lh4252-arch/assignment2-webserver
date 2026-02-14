@@ -1,4 +1,4 @@
-# import socket module
+er# import socket module
 from socket import *
 # In order to terminate the program
 import sys
@@ -12,15 +12,14 @@ def webServer(port=13331):
   serverSocket.bind(("", port))
   
   #Fill in start
-Socket.listen(1)
+serverSocket.listen(1)
   #Fill in end
 
   while True:
     #Establish the connection
     
     print('Ready to serve...')
-    connectionSocket, addr = #Fill in start 
-    serverSocket.accept()
+    connectionSocket, addr = serverSocket.accept()
     #Fill in end
     
     try:
@@ -31,8 +30,7 @@ Socket.listen(1)
       
       #opens the client requested file. 
       #Plenty of guidance online on how to open and read a file in python. How should you read it though if you plan on sending it through a socket?
-      f = open(filename[1:],     #fill in start  
-               "rb")
+      f = open(filename[1:], "rb")
                #fill in end   )
       
       
@@ -58,8 +56,8 @@ outputdata += b"Connection: close\r\n"
       #Send everything as one send command, do not send one line/item at a time!
 
       # Fill in start
+connectionSocket.send(outputdata)
 
-connectionSocket.close()
       # Fill in end
         
       connectionSocket.close() #closing the connection socket
@@ -89,5 +87,6 @@ connectionSocket.close()
 
 if __name__ == "__main__":
   webServer(13331)
+
 
 
